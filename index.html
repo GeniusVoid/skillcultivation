@@ -1,76 +1,41 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skill Cultivation</title>
+    <title>Calculator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <main class="calculator" aria-label="Calculator">
+        <h1>Calculator</h1>
+        <input id="display" class="display" type="text" value="0" readonly aria-label="Calculator display">
 
-    <header>
-        <div class="menu-icon" onclick="showSection('settings')">☰</div>
-        <div class="coin-display">Total (Bronze): <span id="totalCoins">0</span></div>
-    </header>
+        <div class="keys" id="keys">
+            <button data-action="clear" class="span-2">AC</button>
+            <button data-action="delete">DEL</button>
+            <button data-value="/">÷</button>
 
-    <main>
-        <div id="home" class="view active home-container">
-            <h1 class="rainbow-title">SKILL CULTIVATION</h1>
-            
-            <button class="action-btn" onclick="openAddScreen()">Add Coin</button>
-            <button class="action-btn" onclick="showSection('log')">Check Coin Log</button>
-        </div>
+            <button data-value="7">7</button>
+            <button data-value="8">8</button>
+            <button data-value="9">9</button>
+            <button data-value="*">×</button>
 
-        <div id="add" class="view">
-            <button class="back-btn" onclick="showSection('home')">← Back</button>
-            <h2 id="formTitle">Cultivate Skill</h2>
-            
-            <label>Coin Type</label>
-            <select id="coinType">
-                <option value="bronze">Bronze</option>
-                <option value="silver">Silver</option>
-                <option value="gold">Gold</option>
-            </select>
+            <button data-value="4">4</button>
+            <button data-value="5">5</button>
+            <button data-value="6">6</button>
+            <button data-value="-">−</button>
 
-            <label>Quantity</label>
-            <input type="number" id="coinQty" placeholder="0">
-            
-            <label>Description</label>
-            <textarea id="coinDesc" rows="4" placeholder="What did you learn?"></textarea>
-            
-            <input type="hidden" id="editIndex">
+            <button data-value="1">1</button>
+            <button data-value="2">2</button>
+            <button data-value="3">3</button>
+            <button data-value="+">+</button>
 
-            <button class="action-btn confirm-btn" onclick="saveCoin()">CONFIRM</button>
-        </div>
-
-        <div id="log" class="view">
-            <button class="back-btn" onclick="showSection('home')">← Back</button>
-            <h2>Cultivation Log</h2>
-            <div id="logList"></div>
-        </div>
-
-        <div id="settings" class="view">
-            <button class="back-btn" onclick="showSection('home')">← Back</button>
-            <h2>Settings</h2>
-            
-            <h3 class="highlight-text">Conversion Rates</h3>
-            
-            <label>1 Silver equals how many Bronze?</label>
-            <input type="number" id="rateSilver" value="50">
-            
-            <label>1 Gold equals how many Silver?</label>
-            <input type="number" id="rateGold" value="10">
-            
-            <button class="action-btn" onclick="saveSettings()" style="font-size: 14px; padding: 10px;">Save Rates</button>
+            <button data-value="0" class="span-2">0</button>
+            <button data-value=".">.</button>
+            <button data-action="equals" class="accent">=</button>
         </div>
     </main>
-
-    <div id="overlay" class="overlay" onclick="closeActionSheet()"></div>
-    <div id="actionSheet">
-        <div class="sheet-option" onclick="editSelectedLog()">Edit Log</div>
-        <div class="sheet-option delete-option" onclick="deleteSelectedLog()">Delete Log</div>
-    </div>
 
     <script src="app.js"></script>
 </body>
